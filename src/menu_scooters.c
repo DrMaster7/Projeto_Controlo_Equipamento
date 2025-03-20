@@ -35,20 +35,27 @@ void menuScooters(trotinete *estrotinete)
             printf("Proceed with the operation? ");
             scanf("%d", &option);
 
-            if(option == 1)
+            if (option == 1)
             {
-                if (remove("scooters.dat" || "logs.dat") == 0) 
+                FILE *file = fopen("scooters.dat", "rb"); // Abre o ficheiro "scooters.dat" em modo de leitura binária.
+                if (file) 
                 {
-                    printf("Configurations reseted.");
+                    fclose(file);              // Fecha o ficheiro antes de removê-lo (caso contrário não irá deletar).
+                    if (remove("scooters.dat") == 0) {
+                        printf("Configurations reset.");
+                    } else {
+                        printf("Error: Configurations not reset.");
+                    }
                 }
-                else 
+                else
                 {
-                    printf("Error: Configurations not reseted.");
+                    printf("Error: Configurations not reset.");
+                    break;
                 }
             }
             else if (option == 0)
             {
-                menu(estrotinete);
+                menu(estrotinete); // Retorno ao menu das scooters.
             }
             else
             {
@@ -56,7 +63,7 @@ void menuScooters(trotinete *estrotinete)
             }
         }
         else if (option != 0)
-        { // Se o utilizador escolher outra opção fora 0, 1, 2 ou 3.
+        { // Se o utilizador escolher outra opção fora do eixo 0-4.
             printf("Invalid option, choose an option between 0-4.\n");
         }
 

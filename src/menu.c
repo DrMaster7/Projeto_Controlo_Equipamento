@@ -3,7 +3,7 @@
 // Função para o menu.
 int menu(trotinete *estrotinete)
 {
-    int option = 0;
+    int option;
     do
     {
         printf(WHITE "\n----- SCOOTY CHARGER -----\n" RESET);
@@ -26,8 +26,6 @@ int menu(trotinete *estrotinete)
             printf("Invalid option, choose an option between 0-2.\n");
         }
     } while (option != 0); // Enquanto o utilizador não escolher a opção "0".
-
-    saveScooters(estrotinete); // Salva as trotinetes ao sair
-
-    return option; // Retorna o valor de `option` (0 para sair)
+    saveScooters(estrotinete); // Salva as trotinetes ao sair.
+    return option; // Retorna o valor de `option` (0 para sair).
 }

@@ -27,11 +27,15 @@ void *updateBatteries(void *arg)
                 estrotinete[i].battery = estrotinete[i].battery < 10 ? estrotinete[i].battery + 1 : 10;
                 logEvents(estrotinete[i].id, EVENT_LOCKED, estrotinete[i].battery); // Ligação à função "logs()" para registar que houve mudança de bateria.
             }
-                
             else
             {
                 estrotinete[i].battery = estrotinete[i].battery > 0 ? estrotinete[i].battery - 1 : 0;
                 logEvents(estrotinete[i].id, EVENT_UNLOCKED, estrotinete[i].battery); // Ligação à função "logs()" para registar que houve mudança de bateria.
+            }
+            if (estrotinete[i].battery == 0)
+            {
+                estrotinete[i].locked = "Yes"; // Tranca a trotinete.
+                logEvents(estrotinete[i].id, EVENT_LOCKED, estrotinete[i].battery); // Ligação à função "logs()" para registar que foi bloqueada.
             }
         }
         pthread_mutex_unlock(&mutex);
@@ -57,7 +61,7 @@ int main()
         estrotinete[0] = (trotinete){1, 8, "Yes"};
         estrotinete[1] = (trotinete){2, 10, "No"};
         estrotinete[2] = (trotinete){3, 5, "No"};
-        estrotinete[3] = (trotinete){4, 2, "Yes"};
+        estrotinete[3] = (trotinete){4, 1, "No"};
     }
 
     // Criar thread para atualização das baterias

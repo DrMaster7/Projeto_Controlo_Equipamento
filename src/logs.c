@@ -42,13 +42,13 @@ void saveLogs() {
                 eventDesc = "Battery changed.";
                 break;
             case EVENT_UNLOCKED:
-                eventDesc = "Scooter unlocked and being used";
+                eventDesc = "Scooter unlocked.";
                 break;
             case EVENT_LOCKED:
-                eventDesc = "Scooter locked and free to be used";
+                eventDesc = "Scooter locked.";
                 break;
             default:
-                eventDesc = "Unknown event";
+                eventDesc = "Unknown event.";
         }
         fprintf(file, "Trotinete %d | %s | %s | Battery: %d\n", 
         current->id, timeStr, *eventDesc, current->battery);
