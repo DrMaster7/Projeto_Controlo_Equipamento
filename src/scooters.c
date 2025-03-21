@@ -40,11 +40,12 @@ void useScooters(trotinete *estrotinete)
         {
             if (estrotinete[index].battery <= 2) // Se a trotinete estiver com 20% bateria ou menos.
             {
-                printf("Low scooter charge. Please wait for charging.\n");
+                printf("Scooter's battery low. Please wait for the recharging.\n");
             }
             else if (estrotinete[index].battery <= 5) // Se a trotinete estiver com 50% bateria ou menos.
             {
                 estrotinete[index].locked = "No"; // Destranca a trotinete.
+                printf("Scooter unlocked. Have a nice travel.\n");
                 printf("WARNING: Battery at %d%%, long journeys can completely drain the battery.\n", estrotinete[index].battery);
             }
             else

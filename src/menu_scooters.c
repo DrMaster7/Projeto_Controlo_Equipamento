@@ -62,10 +62,13 @@ void menuScooters(trotinete *estrotinete)
                 printf("Invalid option, choose an option between 0-1.\n");
             }
         }
+        else if (option == 0)
+        {
+            menu(estrotinete);
+        }
         else if (option != 0)
         { // Se o utilizador escolher outra opção fora do eixo 0-4.
             printf("Invalid option, choose an option between 0-4.\n");
         }
-
     } while (option != 0); // Enquanto o utilizador não escolher a opção "0".
 }
