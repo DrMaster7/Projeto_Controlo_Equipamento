@@ -10,9 +10,6 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-int option;
-int *count;
-
 typedef struct
 {
     int id;
@@ -20,21 +17,8 @@ typedef struct
     char *locked;
 } trotinete;
 
-typedef struct {
-    int id;
-    char eventType;
-    int battery;
-    unsigned long timestamp;
-    struct log *next;
-} log;
-
-log *logs_head = NULL;
-log *logs_tail = NULL;
-
 #include "logs.h"
-#include "menu_scooters.h"
 #include "menu.h"
-#include "saveload.h"
 #include "scooters.h"
 
 #endif

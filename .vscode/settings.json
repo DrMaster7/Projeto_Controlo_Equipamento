@@ -1,0 +1,10 @@
+{
+  "files.associations": {
+    "scooters.h": "c",
+    "unistd.h": "c",
+    "main.h": "c",
+    "menu.h": "c",
+    "menu_scooters.h": "c",
+    "logs.h": "c"
+  }
+}
